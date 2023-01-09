@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_180201053_enesayaz.Page5"
+             Title="Page5">
+    <VerticalStackLayout Background="red">
+        <Label 
+            Text="Book-Author"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Large"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Padding="25" Spacing="150">
+            <Label Text="Author_ID" FontSize="Medium"/>
+
+            <Label Text="Book_ID" FontSize="Medium"/>
+
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+            <ListView  WidthRequest="250" HeightRequest="200" x:Name="Auth_list_view" ItemTapped="Auth_list_view_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding author_id}"/>
+                                <Label Text="{Binding author_name}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView  WidthRequest="250" HeightRequest="200" x:Name="Book_list_view" ItemTapped="Book_list_view_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding book_id}"/>
+                                <Label Text="{Binding book_name}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="150" Padding="20">
+            <Button Text="ADD" WidthRequest="150" Clicked="Button_Clicked"/>
+        
+        </HorizontalStackLayout>
+     
+        <ListView x:Name="authbook_entroll" HorizontalOptions="Center" VerticalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <Label Text="{Binding book_id}"/>
+                            <Label Text="{Binding author_id}"/>
+                            <Button Text="Delete" WidthRequest="150" x:Name="Button_Delete" BindingContext="{Binding entroll_id}" Clicked="Button_Delete_Clicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+       
+    </VerticalStackLayout>
+</ContentPage>
